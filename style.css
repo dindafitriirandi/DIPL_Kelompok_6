@@ -1,0 +1,38 @@
+body {
+	font-family: "Montserrat", sans-serif;
+	background-image: url("bg.jpeg");
+}
+.nav-item {
+	font-weight: 900;
+	color: black;
+}
+.footer {
+	background-color: red;
+}
+.welcome-text {
+	font-family: "Poppins", sans-serif;
+	font-weight: 700;
+}
+.akun {
+	color: red !important;
+}
+.login {
+	background: #335AAB1;
+	border: 0;
+	border-radius: 15px;
+	transition: 0.8s;
+}
+.login:hover {
+	background: rgb(44, 199, 247);
+	transition: 0.8s;
+}
+.regis {
+	background: red;
+	border: 0;
+	border-radius: 15px;
+	transition: 0.8s;
+}
+.regis:hover {
+	background: rgb(168, 0, 0);
+	transition: 0.8s;
+}

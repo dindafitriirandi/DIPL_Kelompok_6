@@ -15,10 +15,10 @@ body {
     background: url('https://source.unsplash.com/8qNuR1lIv_k');
     opacity: 1.5;
     -webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	background-size: cover;
-  	color: #0a0a0b;
-  	overflow: hidden;
+    -moz-background-size: cover;
+    background-size: cover;
+    color: #0a0a0b;
+    overflow: hidden;
 }
 
 ul, nav{

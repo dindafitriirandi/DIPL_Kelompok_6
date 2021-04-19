@@ -7,7 +7,9 @@ body {
   margin:0;
   padding:0;
   font-family: 'Lato';
-  background: linear-gradient(#ffffff, #35AAB1);
+  background-image: url("kost.jpeg");
+  background-color: #cccccc;
+  /*background: linear-gradient(#ffffff, #35AAB1);*/
 }
 
 .login-box {
