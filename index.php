@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row">
                 <div class="col d-flex justify-content-center">
-                <h1 style="font-weight:bold; margin-top:100px">KOST HUNTER</h1>
+                <h1 style="font-weight:bold; margin-top:110px">KOST HUNTER</h1>
                 </div>
             </div>
         </div>
