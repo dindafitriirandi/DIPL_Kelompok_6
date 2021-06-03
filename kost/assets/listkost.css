@@ -1,0 +1,93 @@
+.bg-navbar {
+    background-color: #35aab1;
+}
+
+nav a {
+    font-size: large;
+}
+
+.top-search {
+    float: right;
+    margin-top: 20px;
+}
+
+.top-search input {
+    background-color: #35aab1;
+    border: 2px solid #35aab1;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+.card-kost ul {
+    list-style-type: none;
+    left: 0;
+}
+
+.btn-detail {
+    background-color: #35aab1;
+    color: white;
+    opacity: 0.8;
+}
+
+.btn-detail:hover {
+    opacity: 1;
+    color: white;
+}
+
+.btn-delete {
+    background-color: rgb(202, 32, 32);
+    color: white !important;
+    opacity: 0.8;
+}
+
+.btn-delete:hover {
+    opacity: 1;
+    color: white !important;
+}
+
+.btn-addkost {
+    padding: 5px 10px;
+    background-color: #ff7628;
+    color: white;
+    opacity: 0.8;
+}
+
+.btn-addkost:hover {
+    opacity: 1;
+    color: white;
+}
+
+.modal-content {
+    background-color: #35aab1;
+    opacity: 0.8;
+}
+
+.modal-backdrop {
+    opacity: 0.5;
+}
+
+.form-add-kost input {
+    background-color: white;
+    border-radius: 25px;
+    width: 100%;
+}
+
+.form-add-kost textarea {
+    border-radius: 25px;
+    padding: 10px;
+    width: 100%;
+}
+
+.file-upload {
+    background-color: #35aab1;
+}
+
+.price {
+    font-size: 18px;
+    color: black;
+}

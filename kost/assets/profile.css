@@ -1,0 +1,29 @@
+.bg-navbar {
+    background-color: #35aab1;
+}
+
+nav a {
+    font-size: large;
+}
+
+.btn-profile {
+    background-color: #ff7628;
+    color: white;
+    opacity: 0.8;
+}
+
+.btn-profile:hover {
+    opacity: 1;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: #35aab1;
+    color: white;
+    opacity: 0.8;
+}
+
+.btn-cancel:hover {
+    opacity: 1;
+    color: white;
+}

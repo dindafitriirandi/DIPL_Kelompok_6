@@ -1,0 +1,84 @@
+.bg-navbar {
+    background-color: #35aab1;
+}
+
+nav a {
+    font-size: large;
+}
+
+.owner img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.owner-info {
+    font-size: 18px;
+    /* font-weight: bold; */
+}
+
+.btn-askowner {
+    padding: 5px 10px;
+    color: black;
+    opacity: 0.8;
+    border: 1px solid black;
+}
+
+.btn-askowner:hover {
+    opacity: 1;
+    color: black;
+    border: 2px solid black;
+}
+
+.btn-startrent {
+    padding: 5px 10px;
+    background-color: #35aab1;
+    color: white;
+    opacity: 0.8;
+}
+
+.btn-startrent:hover {
+    opacity: 1;
+    color: white;
+}
+
+.btn-addkost {
+    padding: 5px 10px;
+    background-color: #ff7628;
+    color: white;
+    opacity: 0.8;
+}
+
+.btn-addkost:hover {
+    opacity: 1;
+    color: white;
+}
+
+.modal-content {
+    background-color: #35aab1;
+    opacity: 0.8;
+}
+
+.modal-backdrop {
+    opacity: 0.5;
+}
+
+.form-add-kost input {
+    background-color: white;
+    border-radius: 25px;
+    width: 100%;
+}
+
+.form-add-kost textarea {
+    border-radius: 25px;
+    padding: 10px;
+    width: 100%;
+}
+
+.file-upload {
+    background-color: #35aab1;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}

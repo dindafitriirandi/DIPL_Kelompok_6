@@ -12,26 +12,27 @@ class Login extends CI_Controller {
 	public function index()
 	{
         $this->form_validation->set_rules('username','Username','required|trim');
-        $this->form_validation->set_rules('password_user','Password_user','required|trim');
+        $this->form_validation->set_rules('password','Password','required|trim');
         if($this->form_validation->run() == false){
-            $this->load->view('login/index');
+            $this->load->view('login');
         }else{
             $username = $this->input->post('username');
-			$password = $this->input->post('password_user');
+			$password = $this->input->post('password');
 			$user = $this->db->get_where('user',['username'=> $username])->row_array();
             if ($user){
-                if($password === $user['password_user']){
+                if($password === $user['password']){
                     $sesi['user'] = [
-                        "idPencariKost" => $user['idPencariKost'],
-                        "namaPencari" => $user['namaPencari'],
-                        "noPencari" => $user['noPencari'],
-                        "alamatPencari" => $user['alamatPencari'],
-                        "emailPencari" => $user['emailPencari'],
+                        "idUser" => $user['idUser'],
+                        "nama" => $user['nama'],
+                        "nohp" => $user['nohp'],
+                        "alamat" => $user['alamat'],
+                        "email" => $user['email'],
+                        "birth_date" => $user['birth_date'],
                         "username" => $user['username'],
-                        "password_user" => $user['password_user']
+                        "password" => $user['password']
                     ];
                     $this->session->set_userdata($sesi);
-                    redirect('home/');
+                    redirect('home');
                 }else{
                     $this->session->set_flashdata('flash','Wrong Password !');
                     redirect('login');

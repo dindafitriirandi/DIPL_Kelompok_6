@@ -1,0 +1,25 @@
+nav a {
+    font-size: large;
+}
+
+main {
+    background-image: url(../assets/asset/WhatsApp\ Image\ 2021-04-09\ at\ 20.35\ 2.svg);
+    background-size: cover;
+    height: 825px;
+}
+
+.btn-submit {
+    background-color: #35aab1;
+    color: white;
+    opacity: 0.8;
+}
+
+.btn-submit:hover {
+    opacity: 1;
+    color: white;
+}
+
+.login a {
+    text-decoration: none;
+    color: #35aab1;
+}

@@ -1,0 +1,30 @@
+.bg-navbar {
+    background-color: #35aab1;
+}
+
+nav a {
+    font-size: large;
+}
+
+.box {
+    padding: 20px;
+    background-color: #35aab1;
+    border-radius: 20px;
+    color: white;
+}
+
+.box td {
+    font-size: 28px;
+    color: white;
+}
+
+.btn-order {
+    background-color: #ff7628;
+    color: white;
+    opacity: 0.8;
+}
+
+.btn-order:hover {
+    opacity: 1;
+    color: white;
+}

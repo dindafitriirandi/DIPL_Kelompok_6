@@ -14,12 +14,16 @@ class Home extends CI_Controller {
 			$data['judul'] = 'Kost Hunter';
 			$data['nama'] = $nama;
 			$data['sesi'] = $this->session->all_userdata();
-			$this->load->view('templates/header', $data);
-			$this->load->view('home/index', $data);
-			$this->load->view('templates/footer');
+			// $this->load->view('templates/header', $data);
+			$this->load->view('home', $data);
+			// $this->load->view('templates/footer');
 		}
-
 	}
+	public function profile(){
+        $nik = $_SESSION['idUser'];
+        $data['item']['entries'] = $this->Profile_model->get_user_by($idUser);
+        $this->load->view('profile',$data);
+      }
 	public function logout(){
 		$array_items = array('user');
 		$this->session->unset_userdata($array_items);

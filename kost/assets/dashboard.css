@@ -1,0 +1,51 @@
+.top-wrapper {
+    padding: 125px 0;
+}
+
+nav a {
+    font-size: large;
+}
+
+main {
+    background-image: url(../assets/asset/WhatsApp\ Image\ 2021-04-09\ at\ 20.35\ 2.svg);
+    background-size: cover;
+    height: 600px;
+}
+
+.btn-find {
+    background-color: #35aab1;
+    color: white;
+    border-radius: 19px;
+    opacity: 0.8;
+}
+
+.arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.btn-find:hover {
+    opacity: 1;
+    color: white;
+}
+
+.active {
+    color: #35aab1;
+}
+
+.reason-wrapper {
+    background-color: #35aab1;
+    padding: 30px;
+}
+
+.reason-wrapper .card {
+    height: 245px;
+    padding-top: 25px;
+}
