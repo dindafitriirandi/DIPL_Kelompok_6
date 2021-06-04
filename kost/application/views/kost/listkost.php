@@ -31,7 +31,7 @@
                             <i class="fas fa-user"></i> <?=$sesi['user']['nama']?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="<?= base_url(); ?>profile">Profile</a>
+                            <a class="dropdown-item" href="<?= base_url(); ?>profile">Edit Profile</a>
                             <a class="dropdown-item" href="<?=base_url('home/logout')?>" onclick="return confirm('Logout?');">Logout</a>
                         </div>
                     </div>
@@ -70,33 +70,33 @@
 
         <div class="container mt-4">
             <div class="row my-4">
-                <?php foreach( $datakost as $psg ) : ?>
+                <?php foreach( $datakost as $kost ) : ?>
                     <div class="col-md-4">
                         <div class="card card-kost mb-3">
                             <img class="card-img-top" src="../assets/asset/WhatsApp Image 2021-04-09 at 20.35 2.svg " alt="..." />
-                            <!-- <img class="card-img-top" src="<?= $psg['imageKost'] ?>" width="100" alt="Card image cap"> -->
+                            <!-- <img class="card-img-top" src="<?= $kost['imageKost'] ?>" width="100" alt="Card image cap"> -->
                             <div class="card-body">
-                                <h5 class="card-title"><?= $psg['namaKost']?></h5>
+                                <h5 class="card-title"><?= $kost['namaKost']?></h5>
                                 <table>
                                     <tr>
                                         <td align="left" valign="top">Name</td>
                                         <td align="left" valign="top">:</td>
-                                        <td><?= $psg['namaKost']?></td>
+                                        <td><?= $kost['namaKost']?></td>
                                     </tr>
                                     <tr>
                                         <td align="left" valign="top">Address</td>
                                         <td align="left" valign="top">:</td>
-                                        <td><?= $psg['alamatKost']?></td>
+                                        <td><?= $kost['alamatKost']?></td>
                                     </tr>
                                     <tr>
                                         <td align="left" valign="top">Facility</td>
                                         <td align="left" valign="top">:</td>
-                                        <td><?= $psg['fasilitasKost']?></td>
+                                        <td><?= $kost['fasilitasKost']?></td>
                                     </tr>
                                     <tr>
                                         <td align="left" valign="top">Room Availability</td>
                                         <td align="left" valign="top">:</td>
-                                        <td valign="top"><?= $psg['totalKost']?> room</td>
+                                        <td valign="top"><?= $kost['totalKost']?> room</td>
                                     </tr>
                                     <tr>
                                         <td align="left" valign="top">Price</td>
@@ -104,7 +104,7 @@
                                         <td>
                                             <p class="price">
                                                 Rp
-                                                <span style="color: red"><b><?= $psg['hargaKost']?></b></span>
+                                                <span style="color: red"><b><?= $kost['hargaKost']?></b></span>
                                                 /Year
                                             </p>
                                         </td>

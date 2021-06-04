@@ -14,9 +14,7 @@ class Home extends CI_Controller {
 			$data['judul'] = 'Kost Hunter';
 			$data['nama'] = $nama;
 			$data['sesi'] = $this->session->all_userdata();
-			// $this->load->view('templates/header', $data);
 			$this->load->view('home', $data);
-			// $this->load->view('templates/footer');
 		}
 	}
 	public function profile(){

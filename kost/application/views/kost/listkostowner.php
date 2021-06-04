@@ -31,7 +31,7 @@
                             <i class="fas fa-user"></i> <?=$sesi['user']['nama']?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="<?= base_url(); ?>profile">Profile</a>
+                            <a class="dropdown-item" href="<?= base_url(); ?>profile">Edit Profile</a>
                             <a class="dropdown-item" href="<?=base_url('home/logout')?>" onclick="return confirm('Logout?');">Logout</a>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                                             <td>Price</td>
                                             <td class="d-flex">:</td>
                                             <td>
-                                                <input type="number" name="hargaKost" />
+                                                <input type="text" name="hargaKost" />
                                             </td>
                                             <td>/Year</td>
                                         </tr>

@@ -73,12 +73,12 @@ textarea:focus {
 
 .form-add-kost input {
     background-color: white;
-    border-radius: 25px;
+    border-radius: 5px;
     width: 100%;
 }
 
 .form-add-kost textarea {
-    border-radius: 25px;
+    border-radius: 5px;
     padding: 10px;
     width: 100%;
 }

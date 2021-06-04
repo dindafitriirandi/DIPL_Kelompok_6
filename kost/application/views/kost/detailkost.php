@@ -29,10 +29,10 @@
                     <a class="nav-link ml-lg-3 active" href="<?= base_url(); ?>kost/listkost">List Kost</a>
                     <div class="dropdown">
                         <a class="nav-link ml-lg-3 dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown">
-                            <i class="fas fa-user"></i> <?=$sesi['user']['namaPencari']?>
+                            <i class="fas fa-user"></i> <?=$sesi['user']['nama']?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="<?= base_url(); ?>profile">Profile</a>
+                            <a class="dropdown-item" href="<?= base_url(); ?>profile">Edit Profile</a>
                             <a class="dropdown-item" href="<?=base_url('home/logout')?>" onclick="return confirm('Logout?');">Logout</a>
                         </div>
                     </div>

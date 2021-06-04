@@ -5,6 +5,8 @@ class Kost extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->model('Kost_model');
+		$this->load->model('Profile_model');
+		// $this->load->model('DetailKost_model');
 		$this->load->library('form_validation');
 	}
 
@@ -14,16 +16,13 @@ class Kost extends CI_Controller{
 			redirect('login');
 			exit;
 		}else{
-
 			$data['judul'] = 'Daftar Kost';
 			$data['sesi'] = $this->session->all_userdata();
 			$data['datakost'] = $this->Kost_model->getAllKost();
 			if($this->input->post('keyword')){
 				$data['datakost'] = $this->Kost_model->cariDataKost();
 			}
-			// $this->load->view('templates/header', $data);
 			$this->load->view('kost/listkost', $data);
-			// $this->load->view('templates/footer');
 		}
 	}
 
@@ -33,7 +32,6 @@ class Kost extends CI_Controller{
 			redirect('login');
 			exit;
 		}else{
-
 			$data['judul'] = 'Daftar Kost';
 			$data['sesi'] = $this->session->all_userdata();
 			$data['datakost'] = $this->Kost_model->getAllKost();
@@ -85,21 +83,6 @@ class Kost extends CI_Controller{
 		redirect('kost/listkost');
 	}
 
-	public function detailkost($idKost)
-	{
-		if (!$this->session->has_userdata('user')){			
-			redirect('login');
-			exit;
-		}
-		$data['judul'] = 'Detail Data Kost';
-		$data['sesi'] = $this->session->all_userdata();
-		$data['kost'] = $this->Kost_model->getKostById($idKost);
-		// $this->load->view('templates/header', $data);
-		$this->load->view('kost/detailkost', $data);
-		// $this->load->view('templates/footer');
-			
-	}
-
 	public function ubah($idKost)
 	{
 		if (!$this->session->has_userdata('user')){			
@@ -131,4 +114,31 @@ class Kost extends CI_Controller{
 		}
 	}
 	
+	public function detailkost()
+	{
+		if (!$this->session->has_userdata('user')){			
+			redirect('login');
+			exit;
+		}else{
+			$data['judul'] = 'Detail Kost';
+			$data['sesi'] = $this->session->all_userdata();
+			// $idKost = $this->Kost_model->idKost();
+			$data['datakost'] = $this->Kost_model->getKostById($idKost);
+			$this->load->view('kost/detailkost', $data);
+		}
+	}
+
+	// public function editUser()
+	// {
+	// 	if (!$this->session->has_userdata('user')){			
+	// 		redirect('login');
+	// 		exit;
+	// 	}else{
+	// 		$data['judul'] = 'Edit User';
+	// 		$data['sesi'] = $this->session->all_userdata();
+	// 		// $data['user'] = $this->Profile_model->getUserby($idUser);
+	// 		$data['item']['entries'] = $this->Profile_model->getUserby($idUser);
+	// 		$this->load->view('profile', $data);
+	// 	}
+    // }
 }

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2021 at 05:07 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jun 04, 2021 at 04:48 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -112,19 +113,22 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `birth_date` date NOT NULL
+  `birth_date` date NOT NULL,
+  `level` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`idUser`, `nama`, `nohp`, `alamat`, `email`, `username`, `password`, `birth_date`) VALUES
-(1, 'Admin', '0812787750', 'Jl. Sukapura No.9', 'admin@gmail.com', 'admin', 'admin', '1998-04-02'),
-(2, 'Chelsie Monica', '0822830274', 'Jl. Soedirman no 3A', 'chelsie@gmail.com', 'chelsiemonica', 'chelsie123', '1997-10-02'),
-(3, 'Rachel Venya', '0822876392', 'Jl. Riau no 28B', 'rachel@gmail.com', 'rachelvenya', 'rachel123', '2000-01-23'),
-(4, 'Anya Geraldine', '0812383927', 'Jl. Soekarno Hatta no 12C', 'anya@gmail.com', 'anyageral', 'anya123', '1999-11-04'),
-(5, 'Rosmelina', '0822800000', 'Jl. Ahmad Yani 3', 'rosmel@gmail.com', 'rosmel', 'rosmel', '2000-01-01');
+INSERT INTO `user` (`idUser`, `nama`, `nohp`, `alamat`, `email`, `username`, `password`, `birth_date`, `level`) VALUES
+(0, 'Rahman', '081298203000', 'Jl. Bali Raya No.14', 'rahman@gmail.com', 'rahman', '123', '0000-00-00', 'pencari'),
+(1, 'ABC', '081298301025', 'Jl. MatramanB', 'agneszahr@gmail.com', '123', '123', '0000-00-00', 'pemilik'),
+(2, 'Admin', '0812787750', 'Jl. Sukapura No.9', 'admin@gmail.com', 'admin', 'admin', '1998-04-02', 'admin'),
+(3, 'Chelsie Monica', '0822830274', 'Jl. Soedirman no 3A', 'chelsie@gmail.com', 'chelsiemonica', 'chelsie123', '1997-10-02', ''),
+(4, 'Rachel Venya', '0822876392', 'Jl. Riau no 28B', 'rachel@gmail.com', 'rachelvenya', 'rachel123', '2000-01-23', ''),
+(5, 'Anya Geraldine', '0812383927', 'Jl. Soekarno Hatta no 12C', 'anya@gmail.com', 'anyageral', 'anya123', '1999-11-04', ''),
+(6, 'Rosmelina', '0822800000', 'Jl. Ahmad Yani 3', 'rosmel@gmail.com', 'rosmel', 'rosmel', '2000-01-01', '');
 
 --
 -- Indexes for dumped tables
