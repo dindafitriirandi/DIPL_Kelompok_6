@@ -5,11 +5,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../assets/asset/Logo.svg" type="image/x-icon" />
+    <link rel="icon" href="<?= base_url('assets/asset/Logo.svg')?>" type="image/x-icon" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../assets/listkost.css" />
+    <link rel="stylesheet" href="<?= base_url('assets/listkost.css')?>" />
     <title>Kost Hunter</title>
 </head>
 
@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-navbar">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="../assets/asset/Logo.svg" alt="" width="120" />
+                <img src="<?= base_url('assets/asset/Logo.svg')?>" alt="" width="120" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,8 +43,8 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <form class="form-inline" method="GET" style="float: right; margin-top: 20px;">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="kata_cari" value="<?php if(isset($_GET['kata_cari'])) { echo $_GET['kata_cari']; } ?>">
+                    <form class="form-inline" method="GET" style="float: right; margin-top: 20px;" action="<?= base_url('kost/listkost')?>">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         <button type="button" class="btn btn-addkost ml-3" data-toggle="modal" data-target="#exampleModal">Add Kost</button>
                     </form>
@@ -75,20 +75,20 @@
                                 <div class="title d-flex justify-content-center mb-4">
                                     <h3>Add Kost</h3>
                                 </div>
-                                <form action="#" class="form-add-kost">
+                                <form id="form-add-kost" class="form-add-kost" method="POST" enctype="multipart/form-data" action="<?= base_url('kost/tambahkostowner')?>">
                                     <table width="100%">
                                         <tr>
                                             <td>Name</td>
                                             <td>:</td>
                                             <td>
-                                                <input type="text" name="namaKost" />
+                                                <input type="text" name="namaKost" id="namaKost"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Address</td>
                                             <td>:</td>
                                             <td>
-                                                <textarea name="alamatKost" id="address" cols="24" rows="5"></textarea>
+                                                <textarea name="alamatKost" id="alamatKost" cols="24" rows="5"></textarea>
                                             </td>
                                         </tr>
                                         <tr>
@@ -102,14 +102,14 @@
                                             <td>Room Availability</td>
                                             <td>:</td>
                                             <td>
-                                                <input type="number" name="totalKost" />
+                                                <input type="number" name="totalKost" id="totalKost"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Price</td>
                                             <td class="d-flex">:</td>
                                             <td>
-                                                <input type="text" name="hargaKost" />
+                                                <input type="text" name="hargaKost" id="hargaKost"/>
                                             </td>
                                             <td>/Year</td>
                                         </tr>
@@ -117,7 +117,7 @@
                                             <td>Image Kost</td>
                                             <td>:</td>
                                             <td>
-                                                <input type="file" class="file-upload" name="imagekost" />
+                                                <input type="file" class="file-upload" name="imageKost" id="imageKost"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -138,7 +138,7 @@
                 <?php foreach( $datakost as $psg ) : ?>
                     <div class="col-md-4">
                         <div class="card card-kost mb-3">
-                            <img class="card-img-top" src="../assets/asset/WhatsApp Image 2021-04-09 at 20.35 2.svg " alt="..." />
+                            <img class="card-img-top" src="<?= base_url('uploads/kost_image/').$psg['imageKost']?> " alt="..."/>
                             <div class="card-body">
                                 <h5 class="card-title"><?= $psg['namaKost']?></h5>
                                 <table>
@@ -168,14 +168,14 @@
                                         <td>
                                             <p class="price">
                                                 Rp
-                                                <span style="color: red"><b><?= $psg['hargaKost']?></b></span>
-                                                /Year
+                                                <span style="color: red"><b><?= number_format($psg['hargaKost'],2,',','.')?></b></span>
+                                                /Month
                                             </p>
                                         </td>
                                     </tr>
                                 </table>
-                                <a href="<?= base_url(); ?>kost/detailkost" class="btn btn-detail my-2">View Detail</a>
-                                <a href="<?= base_url(); ?>kost/hapus/<?= $psg['idKost']; ?>" class="btn btn-delete my-2" style="border-radius:10px; background-color: rgb(202, 32, 32); color: white; border-radius: 5px" onclick="return confirm('Are you sure?');">Delete</a> 
+                                <a href="<?= base_url('kost/detailkost/'.$psg['idKost']); ?>" class="btn btn-detail my-2">View Detail</a>
+                                <a href="<?= base_url('kost/hapus/'.$psg['idKost']); ?>" class="btn btn-delete my-2" style="border-radius:10px; background-color: rgb(202, 32, 32); color: white; border-radius: 5px" onclick="return confirm('Are you sure?');">Delete</a> 
                             </div>
                         </div>
                     </div>

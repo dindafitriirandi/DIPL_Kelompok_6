@@ -5,11 +5,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="icon" href="./assets/asset/Logo.svg" type="image/x-icon" />
+    <link rel="icon" href="<?= base_url('assets/asset/Logo.svg')?>" type="image/x-icon" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="./assets/register.css" />
+    <link rel="stylesheet" href="<?= base_url('assets/register.css')?>" />
     <title>Kost Hunter</title>
 </head>
 
@@ -18,7 +18,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img src="./assets/asset/Logo.svg" alt="" width="120" />
+                    <img src="<?= base_url('assets/asset/Logo.svg')?>" alt="" width="120" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
                         // }
                     ?> -->
                     <div class="form-login">
-                        <form method="post" action="<?php echo base_url('index.php/register/proses_regis'); ?>">
+                        <form method="post" action="<?php echo base_url('register/proses_regis'); ?>">
                             <div class="form-group">
                                 <label class="font-weight-bold">Full Name</label>
                                 <input type="text" class="form-control" name="nama" id="nama" placeholder="Full Name" required/>
@@ -71,15 +71,22 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Password</label>
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password" required/>
-                                <small id="passwordHelpBlock" class="form-text text-muted">
-                                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                                </small>
                             </div>
                             <div class="form-group">
                                 <label class="font-weight-bold">Re-Password</label>
                                 <input type="password" class="form-control" placeholder="Re-password" required/>
                             </div>
-                            <button type="submit" href="<?= base_url(); ?>home" class="btn btn-submit btn-block">Register</button>
+							<div class="form-group">
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="level1" name="level" class="custom-control-input" value="pemilik">
+								<label class="custom-control-label" for="level1">Pemilik</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="level2" name="level" class="custom-control-input" value="pencari">
+								<label class="custom-control-label" for="level2">Pencari</label>
+							</div>
+							</div>
+                            <button type="submit" class="btn btn-submit btn-block">Register</button>
                         </form>
                     </div>
                     <div class="login mt-2">

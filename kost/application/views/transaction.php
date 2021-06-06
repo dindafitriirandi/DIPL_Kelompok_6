@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="assets/Logo.svg" type="image/x-icon" />
+    <link rel="icon" href="<?= base_url('assets/asset/Logo.svg')?>" type="image/x-icon" />
     <!-- Bootstrap CSS -->
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../assets/order.css" />
+    <link rel="stylesheet" href="<?= base_url('assets/order.css')?>" />
     <title>Kost Hunter</title>
 </head>
 
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="./assets/asset/Logo.svg" alt="" width="120">
+                <img src="<?= base_url('assets/asset/Logo.svg')?>" alt="" width="120">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,17 +48,17 @@
         <h2>Pricing Details</h2>
         <div class="box d-flex justify-content-between">
             <h4>Total Price</h4>
-            <h4>Rp 13.000.000</h4>
+            <h4>Rp <?= number_format($pemesananKost['totalHargaKost'],2,',','.')?></h4>
         </div>
         <h2>Payment Method Recomendations</h2>
-        <form action="#">
+        <form action="<?= base_url('kost/finalize/'.$pemesananKost['idPemesanan'])?>" method="POST">
             <div class="box">
                 <div class="payment d-flex align-items-center">
                     <table>
                         <tr>
-                            <td><input type="radio" name="payment" /></td>
-                            <td>
-                                <img src="assets/logo-gopay-vector 1.svg" alt="" />
+                            <td><input type="radio" name="payment" value="gopay" /></td>
+                            <td align="center">
+                                <img src="<?= base_url('assets/asset/logo-gopay-vector 1.svg')?>" alt="" />
                             </td>
                             <td>
                                 <h5 class="ml-5">
@@ -68,9 +68,9 @@
                             </td>
                             </tr>
                         <tr>
-                            <td><input type="radio" name="payment" /></td>
-                            <td>
-                                <img src="assets/Logo OVO 1.svg" alt="" />
+                            <td><input type="radio" name="payment" value="ovo" /></td>
+                            <td align="center">
+                                <img src="<?= base_url('assets/asset/Logo OVO 1.svg')?>" alt="" />
                             </td>
                             <td>
                                 <h5 class="ml-5">
@@ -80,9 +80,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="payment" /></td>
-                            <td><img src="assets/Logo Dana 1.svg"" /></td>
-                            <td>
+                            <td><input type="radio" name="payment" value="dana" /></td>
+                            <td align="center"><img src="<?= base_url('assets/asset/Logo Dana 1.svg')?>" /></td>
+                            <td >
                                 <h5 class="ml-5">
                                     DANA <br />
                                     <span style="font-size: small">Automatic Confirmation</span>
@@ -90,9 +90,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="payment" /></td>
-                            <td>
-                                <img src="assets/Logo Bank BCA 1.svg" alt=""/>
+                            <td><input type="radio" name="payment" value="bcava" /></td>
+                            <td align="center">
+                                <img src="<?= base_url('assets/asset/Logo Bank BCA 1.svg')?>" alt=""/>
                             </td>
                             <td>
                                 <h5 class="ml-5">
@@ -102,9 +102,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="payment" /></td>
-                            <td>
-                                <img src="assets/kisspng-bank-mandiri-depok-logo-bank-mandiri-semarang-kred-5b74ed29ed53b2 1.svg" alt=""/>
+                            <td><input type="radio" name="payment" value="mandiriva" /></td>
+                            <td align="center">
+                                <img src="<?= base_url('assets/asset/kisspng-bank-mandiri-depok-logo-bank-mandiri-semarang-kred-5b74ed29ed53b2 1.svg')?>" alt=""/>
                             </td>
                             <td>
                                 <h5 class="ml-5">
@@ -114,9 +114,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="payment" /></td>
-                            <td>
-                                <img src="assets/Bank BRI (Bank Rakyat Indonesia) Logo (PNG-1080p) - FileVector69 1.svg" alt=""/>
+                            <td><input type="radio" name="payment" value="briva" /></td>
+                            <td align="center">
+                                <img src="<?= base_url('assets/asset/Bank BRI (Bank Rakyat Indonesia) Logo (PNG-1080p) - FileVector69 1.svg')?>" alt=""/>
                             </td>
                             <td>
                                 <h5 class="ml-5">

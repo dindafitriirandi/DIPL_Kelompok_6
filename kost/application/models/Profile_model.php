@@ -10,10 +10,10 @@
 
         public function getUserby($idUser)
         {
-            $this->db->select('idUser, nama, nohp, alamat, email, birth_date, username, password');
+            $this->db->select('*');
             $this->db->from('user');
             $this->db->where('idUser',$idUser);
-            return $this->db->get();
+            return $this->db->get()->row_array();
             // return $this->db->get_where('user', ['idUser' => $idUser])->row_array();	
         }
 

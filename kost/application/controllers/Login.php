@@ -29,7 +29,9 @@ class Login extends CI_Controller {
                         "email" => $user['email'],
                         "birth_date" => $user['birth_date'],
                         "username" => $user['username'],
-                        "password" => $user['password']
+                        "password" => $user['password'],
+						"level" => $user['level'],
+						"usercreated_at" => $user['created_at']
                     ];
                     $this->session->set_userdata($sesi);
                     redirect('home');

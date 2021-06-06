@@ -5,11 +5,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="icon" href="./assets/asset/Logo.svg" type="image/x-icon" />
+    <link rel="icon" href="<?= base_url('assets/asset/Logo.svg')?>" type="image/x-icon" />
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./assets/dashboard.css" />
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
+	<link rel="stylesheet" href="<?= base_url('assets/dashboard.css')?>" />
     <title>Kost Hunter</title>
 </head>
 
@@ -18,7 +19,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img src="./assets/asset/Logo.svg" alt="" width="120">
+                    <img src="<?= base_url('assets/asset/Logo.svg')?>" alt="" width="120">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,7 +33,7 @@
                                 <i class="fas fa-user"></i> <?=$sesi['user']['nama']?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="<?= base_url(); ?>profile">Edit Profile</a>
+                                <a class="dropdown-item" href="<?= base_url('profile'); ?>">Edit Profile</a>
                                 <a class="dropdown-item" href="<?=base_url('home/logout')?>" onclick="return confirm('Logout?');">Logout</a>
                             </div>
                         </div>
@@ -45,7 +46,7 @@
                 <h1 class="font-weight-bold" style="font-size: 50px; margin-bottom: 40px">KOST HUNTER</h1>
                 <h2 class="font-weight-bold">Looking for a Kos ?</h2>
                 <p class="font-weight-bold">Now it's easier with kost hunter!</p>
-                <a href="<?= base_url(); ?>kost/listkostowner" class="btn btn-find">Let's find out! 
+                <a href="<?= base_url(); ?>kost/listkost" class="btn btn-find">Let's find out! 
                     <span class="arrow right"></span>
                 </a>
             </div>

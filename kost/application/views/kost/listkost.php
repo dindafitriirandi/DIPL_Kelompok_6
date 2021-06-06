@@ -5,11 +5,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../assets/asset/Logo.svg" type="image/x-icon" />
+    <link rel="icon" href="<?= base_url('assets/asset/Logo.svg')?>" type="image/x-icon" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../assets/listkost.css"/>
+    <link rel="stylesheet" href="<?= base_url('assets/listkost.css')?>"/>
     <title>Kost Hunter</title>
 </head>
 
@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-navbar">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="../assets/asset/Logo.svg" alt="" width="120" />
+                <img src="<?= base_url('assets/asset/Logo.svg')?>" alt="" width="120" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,8 +46,8 @@
                     <!-- <div class="top-search">
                         <input type="text" placeholder="Search . . ." />
                     </div> -->
-                    <form class="form-inline" method="GET" style="float: right; margin-top: 20px;">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="kata_cari" value="<?php if(isset($_GET['kata_cari'])) { echo $_GET['kata_cari']; } ?>">
+                    <form class="form-inline" method="GET" style="float: right; margin-top: 20px;" action="<?= base_url('kost/listkost')?>">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword"/>
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
@@ -73,7 +73,7 @@
                 <?php foreach( $datakost as $kost ) : ?>
                     <div class="col-md-4">
                         <div class="card card-kost mb-3">
-                            <img class="card-img-top" src="../assets/asset/WhatsApp Image 2021-04-09 at 20.35 2.svg " alt="..." />
+                            <img class="card-img-top" src="<?= base_url('uploads/kost_image/').$kost['imageKost'] ?>  " alt="..." />
                             <!-- <img class="card-img-top" src="<?= $kost['imageKost'] ?>" width="100" alt="Card image cap"> -->
                             <div class="card-body">
                                 <h5 class="card-title"><?= $kost['namaKost']?></h5>
@@ -104,13 +104,13 @@
                                         <td>
                                             <p class="price">
                                                 Rp
-                                                <span style="color: red"><b><?= $kost['hargaKost']?></b></span>
-                                                /Year
+                                                <span style="color: red"><b><?= number_format($kost['hargaKost'],2,',','.')?></b></span>
+                                                / Month
                                             </p>
                                         </td>
                                     </tr>
                                 </table>
-                                <a href="<?= base_url(); ?>kost/detailkost" class="btn btn-detail my-2">View Detail</a>
+                                <a href="<?= base_url("kost/detailkost/".$kost['idKost']); ?>" class="btn btn-detail my-2">View Detail</a>
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('session');
+		$this->load->model('Profile_model');
 	}
 	public function index($nama = "")
 	{
@@ -18,9 +19,9 @@ class Home extends CI_Controller {
 		}
 	}
 	public function profile(){
-        $nik = $_SESSION['idUser'];
-        $data['item']['entries'] = $this->Profile_model->get_user_by($idUser);
-        $this->load->view('profile',$data);
+        $sesi = $this->session->userdata('user');
+        $data= $this->Profile_model->get_user_by($sesi['idUser']);
+				var_dump($data);
       }
 	public function logout(){
 		$array_items = array('user');

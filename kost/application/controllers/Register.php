@@ -11,6 +11,7 @@
         }
         public function proses_regis()
         {
+			date_default_timezone_set("Asia/Jakarta");
             $this->form_validation->set_rules('nama','Nama','required|trim');
             $this->form_validation->set_rules('username','Username','required|trim|is_unique[user.username]',[
                 'is_unique' => "Username is already registered !"
@@ -22,6 +23,7 @@
                 'matches' => "password doesn't match !!!"
             ]);
             $this->form_validation->set_rules('birth_date','Birth_date','required|trim');
+            // $this->form_validation->set_rules('level','Level','required|trim');
             if ($this->form_validation->run() == true){
                 $this->load->view('register');
             }else{
@@ -32,16 +34,20 @@
                 $birth_date = $this->input->post('birth_date');
                 $username = $this->input->post('username');
                 $password = $this->input->post('password');
+                $level = $this->input->post('level');
                 $data = [
                     'nama'=>$nama,
                     'nohp'=>$nohp,
                     'alamat'=>$alamat,
                     'email'=>$email,
-                    'birth_date'=>$birth_date,
+                    'birth_date'=>date('Y-m-d',strtotime($birth_date)),
                     'username'=>$username,
-                    'password'=>$password
+                    'password'=>$password,
+					'level' => $level,
+					'usercreated_at' => date('Y-m-d')
                 ];
-                $this->db->insert('user',$data);
+				$this->db->insert('user',$data);
+				// var_dump($data);
                 redirect('login');
             }
         }

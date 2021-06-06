@@ -1,11 +1,29 @@
 <?php
 
 	class Kost_model extends CI_model {
+		public function getAllKostOwner($id)
+		{
+			return $this->db->get_where('datakost',array('user_id' => $id))->result_array();
+		}
 		public function getAllKost()
 		{
 			return $this->db->get('datakost')->result_array();
 		}
 
+		public function getDataKost($id)
+		{
+			$this->db->where('idKost',$id);
+			$this->db->join('user','user.idUser = datakost.user_id');
+			return $this->db->get('datakost')->row_array();
+		}
+
+		public function getDataOrder($idpemesanan)
+		{
+			$this->db->where('idPemesanan',$idpemesanan);
+			$this->db->join('datakost','datakost.idKost = pemesanankost.kost_id');
+			$this->db->join('user','user.idUser = pemesanankost.user_id');
+			return $this->db->get('pemesanankost')->row_array();
+		}
 		public function tambahDataKost()
 		{
 			$data = [
@@ -43,12 +61,15 @@
 			$this->db->update('datakost', $data);
 		} 
 		
-		public function cariDataKost()
+		public function cariDataKost($keyword)
 		{
-			$keyword = $this->input->post('keyword', true);
 			$this->db->like('namaKost', $keyword);
-			$this->db->or_like('alamatKost', $keyword);
-			$this->db->or_like('noPemilikKost', $keyword);
+			return $this->db->get('datakost')->result_array();
+		}
+		public function cariDataKostOwner($keyword,$idUser)
+		{
+			$this->db->like('namaKost', $keyword);
+			$this->db->where('user_id',$idUser);
 			return $this->db->get('datakost')->result_array();
 		}
 		

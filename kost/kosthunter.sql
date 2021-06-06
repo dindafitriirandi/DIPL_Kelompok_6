@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2021 at 04:48 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: Jun 06, 2021 at 02:22 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,18 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `usernameAdmin` varchar(50) NOT NULL,
-  `passwordAdmin` varchar(50) NOT NULL,
-  `idAdmin` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `datakost`
 --
 
@@ -47,24 +34,22 @@ CREATE TABLE `datakost` (
   `alamatKost` varchar(100) NOT NULL,
   `fasilitasKost` varchar(100) NOT NULL,
   `hargaKost` int(15) NOT NULL,
-  `imageKost` blob NOT NULL
+  `imageKost` blob NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `datakost`
 --
 
-INSERT INTO `datakost` (`idKost`, `namaKost`, `totalKost`, `alamatKost`, `fasilitasKost`, `hargaKost`, `imageKost`) VALUES
-(1, 'Kost Annisa', 4, 'Jl. Sukabirus No.11A', 'Kasur - Lemari - Meja belajar - Kamar mandi dalam - Parkiran - Dapur bersama', 8000000, ''),
-(2, 'Kost Rumah Daun', 8, 'Jl. Sukabirus No. 8 ', 'Dapur umum, gerbang 24 jam, kamar mandi dalam, parkiran luas.', 9000000, ''),
-(3, 'Kost Rafflesia', 6, 'Jl. Sukapura No.17 B', 'AC - Kamar mandi dalam - Kasur spring bed - Dapur umum', 12000000, ''),
-(4, 'Kost Putra', 4, 'JL. PGA Timur No.19U', 'Kamar mandi dalam - lemari baju - kasur - gerbang 24 jam', 7000000, ''),
-(5, 'Kost BlacknWhite', 12, 'Jl. Bojongsoang Barat No.17F', 'Kamar mandi dalam - AC - Dapur bersama - Ruang belajar bersama - Kulkas bersama - Gerbang 24/7', 10000000, ''),
-(6, 'Kost Sedjuk', 5, 'Jl. Radio Dalam 3 No. 5A', 'AC - Water heater - Kasur dipan - Meja belajar - Lemari - Dapur umum - Gerbang 24/7', 12000000, ''),
-(7, 'Kost Gallan', 4, 'Jl. H.Umar No.12B', 'AC - Kasur - Lemari - Water heater - Parkiran - Gerbang 24/7', 7000000, ''),
-(8, 'Kost Rumah DaunAPAA', 0, 'SFASAA', 'AC - Kasur - Lemari - Water heater - Parkiran - Gerbang 24/7', 9000000, ''),
-(10, 'Kost GallanVFDVD', 7, 'GHFN', 'AC - Kasur - Lemari - Water heater - Parkiran - Gerbang 24/7', 12000000, ''),
-(11, 'Kost Putravdvdsvsv', 2, 'vdfbdb', 'Dapur umum, gerbang 24 jam, kamar mandi dalam, parkiran luas.', 11000000, '');
+INSERT INTO `datakost` (`idKost`, `namaKost`, `totalKost`, `alamatKost`, `fasilitasKost`, `hargaKost`, `imageKost`, `user_id`, `created_at`) VALUES
+(12, 'Kost Annisa', 10, 'Jl H. Umar', '24 jam, AC, kamar mandi dalam, water heater', 700000, 0x312e6a7067, 2, '2021-06-06'),
+(14, 'Kost Rafflesia', 12, 'Jalan Sukapura 3 No.15C', 'Kamar mandi dalam, water heater, kasur, lemari, parkiran.', 850000, 0x6b6f7374526166666c657369612e6a7067, 2, '2021-06-06'),
+(16, 'Kost Rumah Daun', 10, 'Jalan Bojongsoang III No. 19B', 'AC, kamar mandi dalam, kasur, lemari, dapur umum, parkiran.', 900000, 0x6b6f7374416e616e6461312e6a7067, 2, '2021-06-06'),
+(17, 'Kost Putra', 8, 'Jalan. PGA Timur No.19U', 'Kamar mandi dalam - lemari baju - kasur - gerbang 24 jam.', 700000, 0x6b6f737450757472612e6a7067, 2, '2021-06-06'),
+(20, 'Kost BlacknWhite', 5, 'Jl. Bojongsoang Barat No.17F', 'Kamar mandi dalam - AC - Dapur bersama - Ruang belajar bersama - Kulkas bersama - Gerbang 24/7', 800000, 0x6b6f737447616c6c616e312e6a7067, 4, '2021-06-06'),
+(23, 'Kost Rumah Strawberry', 3, 'Jl. Radio Dalam 3 No. 5A', 'AC, water heater, kasur dipan, meja belajar, lemari, dapur umum, gerbang 24/7.', 750000, 0x6b6f7374416e6e697361312e6a7067, 4, '2021-06-06');
 
 -- --------------------------------------------------------
 
@@ -74,30 +59,24 @@ INSERT INTO `datakost` (`idKost`, `namaKost`, `totalKost`, `alamatKost`, `fasili
 
 CREATE TABLE `pemesanankost` (
   `idPemesanan` int(20) NOT NULL,
-  `namaPencari` varchar(50) NOT NULL,
-  `waktuPemesanan` datetime(6) NOT NULL,
-  `namaKost` varchar(50) NOT NULL,
-  `hargaKost` int(15) NOT NULL,
-  `alamatKost` varchar(100) NOT NULL,
-  `statusPemesanan` varchar(50) NOT NULL
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL,
+  `duration` int(11) NOT NULL,
+  `totalHargaKost` int(11) NOT NULL,
+  `statusPemesanan` varchar(50) NOT NULL,
+  `paymentMethod` varchar(50) NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `kost_id` int(11) NOT NULL,
+  `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `pemilikkost`
+-- Dumping data for table `pemesanankost`
 --
 
-CREATE TABLE `pemilikkost` (
-  `idPemilikKost` int(10) NOT NULL,
-  `noKtp` int(20) NOT NULL,
-  `namaPemilik` varchar(50) NOT NULL,
-  `noPemilik` int(20) NOT NULL,
-  `alamatPemilik` varchar(50) NOT NULL,
-  `usernamePemilik` varchar(50) NOT NULL,
-  `passwordPemilik` varchar(50) NOT NULL,
-  `emailPemilik` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `pemesanankost` (`idPemesanan`, `startDate`, `endDate`, `duration`, `totalHargaKost`, `statusPemesanan`, `paymentMethod`, `reason`, `user_id`, `kost_id`, `created_at`) VALUES
+(0, '2021-06-16', '2021-09-16', 3, 21055000, 'Booked', 'dana', 'I ordered for personal', 1, 12, '2021-06-06');
 
 -- --------------------------------------------------------
 
@@ -106,29 +85,28 @@ CREATE TABLE `pemilikkost` (
 --
 
 CREATE TABLE `user` (
-  `idUser` int(10) NOT NULL,
+  `idUser` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `nohp` varchar(20) NOT NULL,
-  `alamat` varchar(100) NOT NULL,
+  `alamat` varchar(200) NOT NULL,
   `email` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `birth_date` date NOT NULL,
-  `level` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `level` varchar(20) NOT NULL,
+  `usercreated_at` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`idUser`, `nama`, `nohp`, `alamat`, `email`, `username`, `password`, `birth_date`, `level`) VALUES
-(0, 'Rahman', '081298203000', 'Jl. Bali Raya No.14', 'rahman@gmail.com', 'rahman', '123', '0000-00-00', 'pencari'),
-(1, 'ABC', '081298301025', 'Jl. MatramanB', 'agneszahr@gmail.com', '123', '123', '0000-00-00', 'pemilik'),
-(2, 'Admin', '0812787750', 'Jl. Sukapura No.9', 'admin@gmail.com', 'admin', 'admin', '1998-04-02', 'admin'),
-(3, 'Chelsie Monica', '0822830274', 'Jl. Soedirman no 3A', 'chelsie@gmail.com', 'chelsiemonica', 'chelsie123', '1997-10-02', ''),
-(4, 'Rachel Venya', '0822876392', 'Jl. Riau no 28B', 'rachel@gmail.com', 'rachelvenya', 'rachel123', '2000-01-23', ''),
-(5, 'Anya Geraldine', '0812383927', 'Jl. Soekarno Hatta no 12C', 'anya@gmail.com', 'anyageral', 'anya123', '1999-11-04', ''),
-(6, 'Rosmelina', '0822800000', 'Jl. Ahmad Yani 3', 'rosmel@gmail.com', 'rosmel', 'rosmel', '2000-01-01', '');
+INSERT INTO `user` (`idUser`, `nama`, `nohp`, `alamat`, `email`, `username`, `password`, `birth_date`, `level`, `usercreated_at`) VALUES
+(1, 'dinda', '08293039029', 'Jalan Riau Timur No.9C', 'dinda@gmail.com', 'dinda', 'dindaa', '2021-06-05', 'pencari', '2021-06-06'),
+(2, 'Agnes', '082829929', 'Jalan Matraman', 'agnes@gmail.com', 'agnes', 'agnes', '1999-03-02', 'pemilik', '2021-06-06'),
+(3, 'Admin', '081298301025', 'Jl. Matraman', 'admin@gmail.com', 'admin', 'admin', '1999-01-01', 'pemilik', '2021-06-06'),
+(4, 'Ihza', '081298203000', 'Jalan Radio Dalam III', 'ihza@gmail.com', 'ihza', 'ihza', '1998-01-15', 'pemilik', '2021-06-06'),
+(5, 'Rosmelina', '081298113999', 'Jalan Riau No.42', 'rosmel@gmail.com', 'rosmel', 'rosmel', '1998-10-14', 'pencari', '2021-06-06');
 
 --
 -- Indexes for dumped tables
@@ -138,13 +116,48 @@ INSERT INTO `user` (`idUser`, `nama`, `nohp`, `alamat`, `email`, `username`, `pa
 -- Indexes for table `datakost`
 --
 ALTER TABLE `datakost`
-  ADD PRIMARY KEY (`idKost`);
+  ADD PRIMARY KEY (`idKost`),
+  ADD KEY `datakost_ibfk_1` (`user_id`);
+
+--
+-- Indexes for table `pemesanankost`
+--
+ALTER TABLE `pemesanankost`
+  ADD PRIMARY KEY (`idPemesanan`),
+  ADD KEY `pemesanankost_ibfk_3` (`user_id`),
+  ADD KEY `pemesanankost_ibfk_2` (`kost_id`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`idUser`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `datakost`
+--
+ALTER TABLE `datakost`
+  MODIFY `idKost` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pemesanankost`
+--
+ALTER TABLE `pemesanankost`
+  ADD CONSTRAINT `pemesanankost_ibfk_2` FOREIGN KEY (`kost_id`) REFERENCES `datakost` (`idKost`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
